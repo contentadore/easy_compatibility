@@ -6,7 +6,8 @@ module EasyCompatibility
       base.extend(ClassMethods)
 
       base.class_eval do
-        alias_method_chain :javascript_heads, :easy_compatibility
+        alias_method :javascript_heads_without_easy_compatibility, :javascript_heads
+        alias_method :javascript_heads, :javascript_heads_with_easy_compatibility
       end
     end
 

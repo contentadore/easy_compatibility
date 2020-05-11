@@ -6,7 +6,8 @@ module EasyCompatibility
       base.extend(ClassMethods)
 
       base.class_eval do
-        alias_method_chain :add_available_filter, :easy_compatibility
+        alias_method :add_available_filter_without_easy_compatibility, :add_available_filter
+        alias_method :add_available_filter, :add_available_filter_with_easy_compatibility
       end
     end
 
